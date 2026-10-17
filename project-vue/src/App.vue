@@ -44,7 +44,7 @@ import { ref } from 'vue'
 
 const cities = ['Москва', 'Казань', 'Сочи']
 const dirs = ['Вперед', 'назад']
-const techs = ['Vue', 'JS', 'SQL']
+const techs = ['Vue', 'JS', 'css']
 
 const name = ref('')
 const age = ref(null)
