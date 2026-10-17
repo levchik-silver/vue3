@@ -425,7 +425,7 @@ h1{
 }
 </style> -->
 
-<template>
+<!-- <template>
   <div>
     <p>Имя: <input v-model="name" /></p>
 
@@ -481,4 +481,161 @@ const tech = ref([])
 const about = ref('')
 const ok = ref(false)
 const show = ref(false)
+</script> -->
+
+<!-- <script setup>
+import{ref, computed} from 'vue'
+const name = ref('')
+const number = ref()
 </script>
+<template>
+  <label>
+    Имя
+  <input type="text" v-model="name">
+  <br>
+  </label>
+<label>
+  Возвраст
+  <input type="number" v-model="number">
+</label>
+<button :disabled="!name || !number" >reply</button>
+</template> -->
+ <!-- <script setup>
+import{ref, computed} from 'vue'
+const isDisable= ref(false)
+function dispinput(){
+  isDisable.value=!isDisable.value
+}
+</script>
+<template>
+  <label>
+    Имя
+  <input type="text" :disabled="isDisable">
+  <br>
+  </label>
+<input @click="dispinput" type="checkbox" >{{ isDisable?'unblock' : 'block' }}</input>
+</template>  -->
+
+
+<!-- <script setup>
+import{ref,computed} from 'vue'
+const items=ref(["Aboba","bOb"])
+const text=ref('')
+function addItems(){
+    items.value.push(text.value)
+}
+function deleteItems(id){
+  items.value=items.value.filter(i=>item.id!==id)
+}
+</script>
+<template>
+    <ul>
+        <li v-for="(item,index) in items":key="index">
+            {{ item }}
+        </li>
+    </ul>
+    <label>
+        <input type="text" v-model="text">
+        имя
+    </label>
+
+<button @click="addItems">
+    добавить
+</button>
+
+</template>
+<style scoped>
+h1{
+    color: blueviolet;
+}
+</style> -->
+
+
+<script setup>
+import { ref, computed } from 'vue'
+
+const items = ref(["Aboba", "bOb"])
+const text = ref('')
+
+
+const users = ref([
+  { id: 1, name: 'name1', salary: 100, age: 30 },
+  { id: 2, name: 'name2', salary: 200, age: 40 }, 
+  { id: 3, name: 'name3', salary: 300, age: 50 },
+])
+
+
+const addItems = () => {
+  if (text.value.trim()) {
+    items.value.push(text.value)
+    text.value = ''
+  }
+}
+
+
+const removeUser = (id) => {
+  users.value = users.value.filter(user => user.id !== id)
+}
+</script>
+
+<template>
+
+  <ul>
+    <li v-for="(item, index) in items" :key="index" @click="items.splice(index, 1)">
+      {{ item }}
+    </li>
+  </ul>
+
+  <label>
+    <input type="text" v-model="text">
+    имя
+  </label>
+  
+
+  <button @click="addItems">добавить</button>
+
+  <hr>
+
+
+  <h3>Список работников</h3>
+  <table border = "1">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Имя</th>
+        <th>Зарплата</th>
+        <th>Возраст</th>
+        <th>Действие</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="user in users" :key="user.id">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.salary }}</td>
+        <td>{{ user.age }}</td>
+        <td>
+          <button @click="removeUser(user.id)">Удалить</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</template>
+
+<style scoped>
+  h1 {
+    color: blueviolet;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ccc;
+  }
+  th {
+    background-color: #f5f5f5;
+  }
+</style>
