@@ -1,484 +1,217 @@
-<!-- <template>
-  <div class="student-card">
-    <h1>Страница студентов</h1>
-    <ul>
-      <li><strong>Имя:</strong> {{ name }}</li>
-      <li><strong>Город:</strong> {{ city }}</li>
-       <li><strong>Возраст:</strong> {{ age }}</li>
-      <li><strong>Направление обучения:</strong> {{ direction }}</li>
-    </ul>
-    <br>
-    <ul>
-      <li><strong>Имя:</strong> {{ name1 }}</li>
-      <li><strong>Возраст:</strong> {{ age1 }}</li>
-      <li><strong>Город:</strong> {{ city1 }}</li>
-      <li><strong>Направление обучения:</strong> {{ direction1 }}</li>
-    </ul>
-      <br>
-    <ul>
-      <li><strong>Имя:</strong> {{ name2 }}</li>
-      <li><strong>Возраст:</strong> {{ age2 }}</li>
-      <li><strong>Город:</strong> {{ city2 }}</li>
-      <li><strong>Направление обучения:</strong> {{ direction2 }}</li>
-    </ul>
-    <br>
-    <ul>
-      <li><strong>Имя:</strong> {{ name3 }}</li>
-      <li><strong>Возраст:</strong> {{ age3 }}</li>
-      <li><strong>Город:</strong> {{ city3 }}</li>
-      <li><strong>Направление обучения:</strong> {{ direction3 }}</li>
-    </ul>
-    <br>
-    <ul>
-      <li><strong>Имя:</strong> {{ name4 }}</li>
-      <li><strong>Возраст:</strong> {{ age4 }}</li>
-      <li><strong>Город:</strong> {{ city4 }}</li>
-      <li><strong>Направление обучения:</strong> {{ direction4 }}</li>
-    </ul>
-    <br>
-    <ul>
-      <li><strong>Имя:</strong> {{ name5 }}</li>
-      <li><strong>Возраст:</strong> {{ age5 }}</li>
-      <li><strong>Город:</strong> {{ city5 }}</li>
-      <li><strong>Направление обучения:</strong> {{ direction5 }}</li>
-    </ul>
-  </div>
-</template>
-
-<script setup>
-import { ref } from 'vue'
-
-const name = ref('Антон Мухов')
-const age = ref(21)
-const city = ref('Краснодар')
-const direction = ref('Прогромирования')
-
-const name1 = ref('А G H')
-const age1 = ref(21)
-const city1 = ref('Краснодар')
-const direction1 = ref('Прогромирования')
-
-const name2 = ref('R SDG EW')
-const age2 = ref(21)
-const city2 = ref('Краснодар')
-const direction2 = ref('Прогромирования')
-</script>
-
-<style scoped>
-.student-card {
-  max-width: 400px;
-  margin: 40px auto;
-  padding: 24px;
-  border: 1px solid #fafafa;
-  border-radius: 12px;
-  font-family: sans-serif;
-  background: #000000;
-}
-.student-card h1 {
-  font-size: 1.4rem;
-  margin-bottom: 16px;
-}
-.student-card ul {
-  list-style: none;
-  padding: 0;
-}
-.student-card li {
-  padding: 8px 0;
-  border-bottom: 1px solid #ffffff;
-}
-.student-card strong {
-  display: inline-block;
-  width: 200px;
-}
-</style> -->
-
-<!-- <script setup>
- import {ref, reactive} from 'vue'
- const items = ref ([1,2,3,4,5])
-</script>
-<template>
-  <ul>
-    <li v-for="(item,index) in items" :key="item.id">
-      {{ index }}:{{ item }}
-    </li>
-  </ul>
-</template> -->
-
-<!-- <script setup>
- import {ref, reactive} from 'vue'
- const task = ref ([
-  {id:1,text:"fff",done:false},
-  {id:2,text:"ggg",done:true},
-  {id:3,text:"ddd",done:false},
-  ])
-</script>
-<template>
-  <h1>мои дела</h1>
-  <ul>
-    <li v-for="task in task" :key="task.id">
-      {{task.done?"Ok":"No"}} {{ task.text }}
-    </li>
-  </ul>
-</template> -->
-
-
-<!-- 
-<script setup>
-
-import{ref} from 'vue'
-const tasks=ref([])
-const newTask=ref('')
-const filter = ref('')
-const visibleTasks = computed(()=>{
-  if(filter.value==='active')return tasks.value.filter(t=>!t.done)
-  if(filter.value==='done')return tasks.value.filter(t=>t.done)
-})
-const stats = computed(()=>({
-  total:tasks.value.length,
-  done:tasks.value.filter(t=>t.done).length
-}))
-function addTask(){
-    if(newTask.value.trim()==='')return
-    tasks.value.push({
-        id:Date.now(),
-        text:newTask.value,
-        done:false,
-    })
-    newTask.value=''
-}
-function removeTask(id){
-    tasks.value=tasks.value.filter(t=>t.id!==id)
-}
-</script>
-
-<template>
-    <h1>мои дела</h1>
-    <input v-model="newTask" placeholder="новое задание" @keyup.enter="addTask"/>
-    <button @click="addTask">добавить</button>
-    <button @click="filter='all'">все</button>
-    <button @click="filter='active'">активные</button>
-    <button @click="filter='done'">выполненые</button>
-    <p>Выполнено: {{ stats.done }} из {{ stats.total }}</p>
-    <ul>
-        <li v-for="task in visibleTasks" :key="task.id">
-          <input type="checkbox" v-model="task.done">
-            {{ task.text }} <button @click="removeTask(task.id)">Удалить</button>
-        </li>
-    </ul>
-
-</template>
-<style scoped>
-h1{
-    color: blueviolet;
-}
-</style> -->
-
-
-<!-- <script setup>
-import { ref, computed } from 'vue'
-
-const games = ref([
-  { title: 'Minecraft',     easy: true,  done: true,  rating: 9.0 },
-  { title: 'Stalker', easy: true,  done: true,  rating: 9.5 },
-  { title: 'Portal 2',       easy: true,  done: false, rating: 9.7 },
-  { title: 'Rust',  easy: false, done: false, rating: 9.8 },
-  { title: 'Standoff2',     easy: false, done: false, rating: 9.6 }
-])
-
-const onlyEasy = ref(false)
-
-const list = computed(() =>
-  games.value
-    .filter(g => !onlyEasy.value || g.easy)
-    .sort((a, b) => b.rating - a.rating)
-)
-
-const percent = computed(() => {
-  const done = games.value.filter(g => g.done).length
-  return Math.round(done / games.value.length * 100)
-})
-</script>
-
-<template>
-  <h1>Мои игры</h1>
-
-  <p>Пройдено: {{ percent }}%</p>
-  <progress :value="percent" max="100"></progress>
-
-  <p>
-    <label>
-      <input type="checkbox" v-model="onlyEasy" />
-      Только для новичков
-    </label>
-  </p>
-
-  <ul>
-    <li v-for="(g, i) in list" :key="g.title">
-      {{ i + 1 }}. {{ g.title }} — ⭐ {{ g.rating }}
-      <button @click="g.done = !g.done">
-        {{ g.done ? 'да' : 'нет' }}
-      </button>
-    </li>
-  </ul>
-</template>
-
-<style>
-body { font-family: sans-serif; max-width: 500px; margin: 30px auto; }
-li { margin: 6px 0; }
-progress { width: 100%; height: 14px; }
-</style> -->
-<!-- <script setup>
- import{ref,computed} from 'vue'
- const isVisible=ref(true)
- function hide(){
-  isVisible.value=!isVisible.value
- }
-</script>
-<template>
-  <p v-if="isVisible">
-   ff
-  </p>
- <button @click="hide">
-
- </button>
-</template> -->
-<!-- <script setup>
- import{ref,computed} from 'vue'
-const temp = ref(25)
-</script>
-<template>
-  <h2 v-if="temp<=15">
-    🥶
-  </h2>
-  <h2 v-else-if="temp>35 || temp<25">
-    тепло
-  </h2>
-  <h2 v-else>
-    жарко
-  </h2>
-</template> -->
-
-
-<!-- <script setup>
-import{ref,computed} from 'vue'
-const fruits=["яблоко","банан","апельсин"]
-</script>
-<template>
-    <h2>
-        Фрукты
-    </h2>
-    <h4 v-for="(fruit,index) in fruits">
-        {{ index +1 }}-{{ fruit }}
-    </h4>
-</template>
-<style scoped>
-h1{
-    color: blueviolet;
-}
-</style> -->
-
-<!-- <script setup>
-import{ref,computed} from 'vue'
-const students=[
-  {
-    id:1,
-    name:'Cheese',
-    price:58
-  },
-  {
-    id:2,
-    name:'Bread',
-    price:79
-  },
-  {
-    id:3,
-    name:'Lemon',
-    price:12
-  }
-]
-</script>
-<template>
- <div class="card" v-for="student in students":key="student.id">
-  
-  <h2 >
-    {{ student.name }}
-  </h2>
-  
-  <p class="e">
- Price:{{ student.price }}
-  </p>
- </div>
-</template>
-<style scoped>
-h1{
-    color: blueviolet;
-}
-.card{
-  display: flex;
-  justify-content: space-between;
-  border: 1px solid black ;
-  width: 100px;
-  height: 123px;
-}
-.e{
- display: flex;
- justify-content: space-between;
-}
-
-</style> -->
-<!-- <script setup>
-import{ref,computed} from 'vue'
-const students=[
-  {
-    id:1,
-    name:'Aboba',
-    pos:true
-  },
-  {
-    id:2,
-    age:'Aboba2',
-     pos:false
-  }
-]
-function addStudent(){
-  students.value.push({
-    id:3,
-    name:"Aboba3"
-  })
-}
-function deleteStudent(id){
-  students.value=students.value.filter(student=>student.id!==id)
-}
-</script>
-<template>
- <div v-for="student in students":key="student.id">
-  <span v-if="student.pos">{{ student.name }}</span>
-  <button @click="deleteStudent(student.id)">delete</button>
-  <p v-for="(value,key) in student">
-  {{ key }}:{{ value }}
-  </p>
- </div>
- <button @click="addStudent">add</button>
-</template>
-<style scoped>
-h1{
-    color: blueviolet;
-}
-
-
-</style> -->
-
-<!-- <script setup>
-import{ref,computed} from 'vue'
-const name = ref ('')
-function showName(){
-  alert(name.value)
-}
-</script>
-
-<template>
-  <input v-model="name" type="text" placeholder="inputname">
-  <button @click="showName">Show</button>
-</template> -->
-
-<!-- <script setup>
-import{ref,computed} from 'vue'
-const age = ref (0)
-const text = ref ('')
-function showName(){
-  alert(age.value+1)
-}
-function showText(){
-  alert(text.value)
-}
-</script>
-
-<template>
-  <input v-model="age" type="number" placeholder="input age">
-  <button @click="showName">Show</button>
-  <textarea v-model="text"></textarea>
-  <p>{{ text }}</p>
-  <button @click="showText">Show</button>
-</template> -->
-<!-- <script setup>
-import{ref,computed} from 'vue'
-const age=ref(0)
-const text=ref('')
-const agree=ref('')
-function showName(){
-    alert(age.value+1)
-}
-function showText(){
-    alert(text.value)
-}
-</script>
-<template>
-<label>
-    <input v-model="agree" type="radio" value="aboba">
-    я согласен
-</label>
-<p>{{ agree }}</p>
-</template>
-<style scoped>
-h1{
-    color: blueviolet;
-}
-</style> -->
-
 <template>
   <div>
-    <p>Имя: <input v-model="name" /></p>
+    <h1>Сотрудники</h1>
 
-    <p>Возраст: <input v-model.number="age" type="number" /></p>
+    <h2>Добавить сотрудника</h2>
+    <div>
+      <input v-model="formName" placeholder="Имя" />
+      <input v-model.number="formAge" type="number" placeholder="Возраст" />
 
-    <p>
-      Город:
-      <select v-model="city">
-        <option v-for="c in cities" :key="c">{{ c }}</option>
+      <select v-model="formDepartment">
+        <option value="">-- отдел --</option>
+        <option v-for="dep in departments" :key="dep" :value="dep">{{ dep }}</option>
       </select>
-    </p>
 
-    <p>
-      Направление:
-      <label v-for="d in dirs" :key="d">
-        <input v-model="dir" type="radio" :value="d" /> {{ d }}
-      </label>
-    </p>
+      <input v-model.number="formSalary" type="number" placeholder="Зарплата" />
 
-    <p>
-      Технологии:
-      <label v-for="t in techs" :key="t">
-        <input v-model="tech" type="checkbox" :value="t" /> {{ t }}
-      </label>
-    </p>
-
-    <p>О себе: <textarea v-model="about"></textarea></p>
-
-    <p>
       <label>
-        <input v-model="ok" type="checkbox" /> Согласен с правилами
+        <input v-model="formActive" type="checkbox" /> Работает
       </label>
-    </p>
 
-    <button :disabled="!ok" @click="show = true">Зарегистрироваться</button>
+      <span>Навыки:</span>
+      <label v-for="skill in allSkills" :key="skill">
+        <input v-model="formSkills" type="checkbox" :value="skill" /> {{ skill }}
+      </label>
 
-    <pre v-if="show">{{ { name, age, city, dir, tech, about } }}</pre>
+      <button :disabled="!isFormValid" @click="addEmployee">Добавить</button>
+    </div>
+
+    <h2>Поиск и фильтры</h2>
+    <div>
+      <input v-model="searchName" placeholder="Поиск по имени" />
+
+      <select v-model="filterDepartment">
+        <option value="">Все отделы</option>
+        <option v-for="dep in departments" :key="dep" :value="dep">{{ dep }}</option>
+      </select>
+
+      <select v-model="filterStatus">
+        <option value="all">Все сотрудники</option>
+        <option value="active">Только работающие</option>
+        <option value="fired">Только уволенные</option>
+      </select>
+    </div>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th><th>Имя</th><th>Возраст</th><th>Отдел</th>
+          <th>Зарплата</th><th>Статус</th><th>Навыки</th><th>Действия</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="emp in filteredEmployees" :key="emp.id">
+          <template v-if="editingId === emp.id">
+            <td>{{ emp.id }}</td>
+            <td><input v-model="editForm.name" /></td>
+            <td><input v-model.number="editForm.age" type="number" /></td>
+            <td>
+              <select v-model="editForm.department">
+                <option v-for="dep in departments" :key="dep" :value="dep">{{ dep }}</option>
+              </select>
+            </td>
+            <td><input v-model.number="editForm.salary" type="number" /></td>
+            <td>
+              <span v-if="emp.active">Работает</span>
+              <span v-else>Уволен</span>
+            </td>
+            <td>{{ emp.skills.join(', ') }}</td>
+            <td>
+              <button @click="saveEdit(emp.id)">Сохранить</button>
+              <button @click="editingId = null">Отмена</button>
+            </td>
+          </template>
+
+          <template v-else>
+            <td>{{ emp.id }}</td>
+            <td>{{ emp.name }}</td>
+            <td>{{ emp.age }}</td>
+            <td>{{ emp.department }}</td>
+            <td>{{ emp.salary }}</td>
+            <td>
+              <span v-if="emp.active">Работает</span>
+              <span v-else>Уволен</span>
+            </td>
+            <td>{{ emp.skills.join(', ') }}</td>
+            <td>
+              <button @click="startEdit(emp)">Редактировать</button>
+              <button v-if="emp.active" @click="toggleStatus(emp.id)">Уволить</button>
+              <button v-else @click="toggleStatus(emp.id)">Восстановить</button>
+              <button @click="removeEmployee(emp.id)">Удалить</button>
+            </td>
+          </template>
+        </tr>
+        <tr v-if="filteredEmployees.length === 0">
+          <td colspan="8">Сотрудники не найдены</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Статистика</h2>
+    <p>Всего: {{ totalCount }}</p>
+    <p>Работают: {{ activeCount }}</p>
+    <p>Уволены: {{ firedCount }}</p>
+    <p>Сумма зарплат: {{ totalSalary }}</p>
+    <p>Средняя зарплата: {{ averageSalary }}</p>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, reactive, computed } from 'vue'
 
-const cities = ['Москва', 'Казань', 'Сочи']
-const dirs = ['Вперед', 'назад']
-const techs = ['Vue', 'JS', 'сss']
+const departments = ['IT', 'Дизайн', 'Покупки', 'Финансы']
+const allSkills = ['JavaScript', 'Vue', 'Python', 'Блендер']
 
-const name = ref('')
-const age = ref(null)
-const city = ref('')
-const dir = ref('')
-const tech = ref([])
-const about = ref('')
-const ok = ref(false)
-const show = ref(false)
+const employees = ref([
+  { id: 1, name: 'Иван', age: 28, department: 'IT', salary: 80000, active: true, skills: ['JavaScript', 'Vue'] },
+  { id: 2, name: 'Мария', age: 34, department: 'Покупки', salary: 60000, active: true, skills: ['яПОКУПИКМ'] },
+  { id: 3, name: 'Сергей', age: 45, department: 'ФИнаны', salary: 70000, active: false, skills: ['Python'] },
+])
+
+const formName = ref('')
+const formAge = ref(null)
+const formDepartment = ref('')
+const formSalary = ref(null)
+const formActive = ref(true)
+const formSkills = ref([])
+
+const isFormValid = computed(() => {
+  if (formName.value.trim() === '') return false
+  if (formAge.value === null || formAge.value < 18) return false
+  if (formDepartment.value === '') return false
+  if (formSalary.value === null || formSalary.value <= 0) return false
+  return true
+})
+
+let nextId = 4
+
+function addEmployee() {
+  if (!isFormValid.value) return
+
+  const newEmployee = {
+    id: nextId,
+    name: formName.value,
+    age: formAge.value,
+    department: formDepartment.value,
+    salary: formSalary.value,
+    active: formActive.value,
+    skills: [...formSkills.value],
+  }
+
+  employees.value.push(newEmployee)
+  nextId = nextId + 1
+
+  formName.value = ''
+  formAge.value = null
+  formDepartment.value = ''
+  formSalary.value = null
+  formActive.value = true
+  formSkills.value = []
+}
+
+function removeEmployee(id) {
+  employees.value = employees.value.filter(e => e.id !== id)
+}
+
+function toggleStatus(id) {
+  const emp = employees.value.find(e => e.id === id)
+  emp.active = !emp.active
+}
+
+const editingId = ref(null)
+const editForm = reactive({ name: '', age: null, department: '', salary: null })
+
+function startEdit(emp) {
+  editingId.value = emp.id
+  editForm.name = emp.name
+  editForm.age = emp.age
+  editForm.department = emp.department
+  editForm.salary = emp.salary
+}
+
+function saveEdit(id) {
+  const emp = employees.value.find(e => e.id === id)
+  emp.name = editForm.name
+  emp.age = editForm.age
+  emp.department = editForm.department
+  emp.salary = editForm.salary
+  editingId.value = null
+}
+
+const searchName = ref('')
+const filterDepartment = ref('')
+const filterStatus = ref('all')
+
+const filteredEmployees = computed(() => {
+  const result = []
+
+  for (const emp of employees.value) {
+    if (!emp.name.toLowerCase().includes(searchName.value.toLowerCase())) continue
+    if (filterDepartment.value !== '' && emp.department !== filterDepartment.value) continue
+    if (filterStatus.value === 'active' && !emp.active) continue
+    if (filterStatus.value === 'fired' && emp.active) continue
+
+    result.push(emp)
+  }
+
+  return result
+})
+
+const totalCount = computed(() => employees.value.length)
+const activeCount = computed(() => employees.value.filter(e => e.active).length)
+const firedCount = computed(() => employees.value.filter(e => !e.active).length)
+const totalSalary = computed(() => employees.value.reduce((s, e) => s + e.salary, 0))
+const averageSalary = computed(() =>
+  employees.value.length ? Math.round(totalSalary.value / employees.value.length) : 0
+)
 </script>
